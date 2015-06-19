@@ -16,9 +16,8 @@ def singleThumb():
 	else:
 		print 'Item does not exist.'
 		
-def collection():
+def collection(attempts):
 	global locationURL, userName, password, itemName, outputFile
-	attempts = 100
 	i = 1
 	totalObjects = 0
 	while i < attempts:
@@ -40,6 +39,7 @@ parser.add_option("-l", "--location", dest="locationURL", help="specify URL")
 parser.add_option("-i", "--itemName", dest="itemName", help="specify namespace of item")
 parser.add_option("-o", "--output", dest="outputFile", help="specify outputFileName")
 parser.add_option("-c", "--collection", dest="collectionName", help="specify a collection namespace")
+parser.add_option("-a", "--attempts", dest="attempts", help="specify the last pid of a namespace")
 
 (options, args) = parser.parse_args()
 if options.userName is None or options.password is None:
@@ -52,6 +52,7 @@ if options.collectionName and options.itemName:
 
 if options:
 	userName = password = locationURL = itemName = outputFile = collectionName = ''
+	attempts = 0
 	if options.userName:
 		userName = options.userName
 	if options.password:
@@ -64,10 +65,13 @@ if options:
 		outputFile = options.outputFile
 	else:
 		outputFile = 'output.jpeg'
+	if options.attempts:
+		attempts = int(options.attempts)
+	else:
+		attempts = 100
 	if options.itemName:
 		itemName = options.itemName
 		singleThumb()
 	if options.collectionName:
 		collectionName = options.collectionName
-		collection()
-	
+		collection(attempts)
