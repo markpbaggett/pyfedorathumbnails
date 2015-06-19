@@ -11,7 +11,6 @@ def singleThumb():
 		imageFile = StringIO(r.content)
 		img = Image.open(imageFile)
 		print 'Creating thumbnail for ' + itemName + ' as '+ outputFile + '. The format is ' + img.format + '.'
-		print r.status_code
 		img.save('temp/' + outputFile, "JPEG", quality=80, optimize=True, progressive=True)
 	else:
 		print 'Item does not exist.'
