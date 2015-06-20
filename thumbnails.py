@@ -43,11 +43,11 @@ parser.add_option("-a", "--attempts", dest="attempts", help="specify the last pi
 (options, args) = parser.parse_args()
 if options.userName is None or options.password is None:
     parser.print_help()
-    parser.error("A username, password, and item is required!")
+    parser.error("A username, password, and item name or collection name is required. For more information, see the readme.")
         
 if options.collectionName and options.itemName:
     parser.print_help()
-    parser.error("Can only specify a collection or a item--not both!")	
+    parser.error("Can only specify a collection or a item--not both! For more information, see the readme.")	
 
 if options:
 	userName = password = locationURL = itemName = outputFile = collectionName = ''
