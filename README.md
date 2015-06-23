@@ -6,20 +6,18 @@ A simple application that pulls thumbnails based on the Fedora API. This assumes
 
 The images are saved to directory called **temp**.
 
+Depending on the instance, authentication may vary.
+
 #### Options
 
 **Required**:
 
-* user
-* password
-* and one of these two:
+* one of these two options:
 	* collection
 	* itemName 
 
 **About**:
 
-* **user**: your fedora username
-* **password**: your fedora password
 * **location**: the URL for the fedora server (defaults to UTK Libraries production server if not specified)
 * **itemName**: the PID of an object
 * **output**: the name of your output file (only works with itemName. defaults to output.jpeg)
@@ -31,8 +29,8 @@ The images are saved to directory called **temp**.
 
 **Single File**
 
-* python thumbnails.py -u username -p password -i adams%3A95 -o mynewthumb.jpeg
+* python thumbnails.py -i adams%3A95 -o mynewthumb.jpeg
 
 **Collection**
 
-* python thumbnails.py -u username -p password -c adams -a 200
+* python thumbnails.py -c adams -a 200
